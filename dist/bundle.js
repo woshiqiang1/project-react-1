@@ -73,6 +73,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__foo__ = __webpack_require__(5);
+
 
 
 function component () {
@@ -82,6 +84,8 @@ function component () {
 }
 
 document.body.appendChild(component());
+console.log(__WEBPACK_IMPORTED_MODULE_2__foo__["a" /* default */])
+console.log(Object(__WEBPACK_IMPORTED_MODULE_2__foo__["a" /* default */])()) //打开浏览器控制台看看结果
 
 
 /***/ }),
@@ -27490,6 +27494,15 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
+
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = (function(){
+      return '方方的教程'
+        });
 
 /***/ })
 /******/ ]);

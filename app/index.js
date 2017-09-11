@@ -3,7 +3,7 @@ import $ from 'jquery';
 import foo from './foo';
 function component () {
   var element = $('<div></div>');
-  element.html(_.join(['hello!','webpack'], ' '))
+  element.html(_.join(['Hi!','webpack'], ' '))
   return element.get(0);
 }
 

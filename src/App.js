@@ -20,7 +20,7 @@ class App extends Component {
 
             return ( // 为什么这里要加个括号？这是动手题3 🐸
                 <li key={index}>
-                    <TodoItem todo={item}/>
+                    <TodoItem todo={item} onToggle={this.toggle.bind(this)}/>
                 </li>
             )
         })
@@ -38,6 +38,11 @@ class App extends Component {
                 </ol>
             </div>
         )
+    }
+
+    toggle(e, todo) {
+        todo.status = todo.status === 'completed' ? '' : 'completed'
+        this.setState(this.state)
     }
 
     changeTitle(event) {

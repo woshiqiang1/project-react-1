@@ -1,14 +1,9 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    background: #ddd;
 }
-#root2{
-  width: 400px;
-  margin: 30px auto;
-  background-color: yellow;
-  text-align: center;
-}
-#root2 h1{
-  color: red;
+
+#root {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
 }

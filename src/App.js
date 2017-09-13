@@ -17,7 +17,7 @@ class App extends Component {
 
     render() {
 
-        let todos = this.state.todoList.filter((item)=> !item.deleted).map((item, index) => {
+        let todos = this.state.todoList.filter((item) => !item.deleted).map((item, index) => {
             return ( // 为什么这里要加个括号？这是动手题3 🐸
                 <li key={index}>
                     <TodoItem todo={item} onToggle={this.toggle.bind(this)}
@@ -41,10 +41,14 @@ class App extends Component {
         )
     }
 
+    componentDidUpdate() {
+        localStore.save('todoList', this.state.todoList)
+    }
+
     toggle(e, todo) {
         todo.status = todo.status === 'completed' ? '' : 'completed'
         this.setState(this.state)
-        localStore.save('todoList', this.state.todoList)
+
     }
 
     changeTitle(event) {
@@ -52,6 +56,7 @@ class App extends Component {
             newTodo: event.target.value,
             todoList: this.state.todoList
         })
+
     }
 
     addTodo(event) {
@@ -65,13 +70,13 @@ class App extends Component {
             newTodo: '',
             todoList: this.state.todoList
         })
-        localStore.save('todoList', this.state.todoList)
+
     }
 
     delete(event, todo) {
         todo.deleted = true
         this.setState(this.state)
-        localStore.save('todoList', this.state.todoList)
+
     }
 }
 

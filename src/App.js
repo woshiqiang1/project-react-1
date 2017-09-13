@@ -45,8 +45,10 @@ class App extends Component {
     }
 
     onSignUp(user) {
-        this.state.user = user
-        this.setState(this.state)
+        //不要直接系应该state，用深拷贝
+        let stateCopy = JSON.parse(JSON.stringify(this.state))
+        stateCopy.user = user
+        this.setState(stateCopy)
     }
 
     componentDidUpdate() {

@@ -1,16 +1,17 @@
-import React, {Component} from 'react';
-import './App.css';
-import TodoInput from './TodoInput';
-import TodoItem from './TodoItem';
+import React, {Component} from 'react'
+import './App.css'
+import TodoInput from './TodoInput'
+import TodoItem from './TodoItem'
 import 'normalize.css'
 import './reset.css'
+import * as localStore from './localStore'
 
 class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
             newTodo: '',
-            todoList: []
+            todoList: localStore.load('todoList') || []
         }
     }
 
@@ -43,6 +44,7 @@ class App extends Component {
     toggle(e, todo) {
         todo.status = todo.status === 'completed' ? '' : 'completed'
         this.setState(this.state)
+        localStore.save('todoList', this.state.todoList)
     }
 
     changeTitle(event) {
@@ -63,11 +65,13 @@ class App extends Component {
             newTodo: '',
             todoList: this.state.todoList
         })
+        localStore.save('todoList', this.state.todoList)
     }
 
     delete(event, todo) {
         todo.deleted = true
         this.setState(this.state)
+        localStore.save('todoList', this.state.todoList)
     }
 }
 

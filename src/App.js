@@ -5,7 +5,8 @@ import TodoItem from './TodoItem'
 import 'normalize.css'
 import './reset.css'
 import UserDialog from './UserDialog'
-import {getCurrentUser, signOut} from './leanCloud'
+import {getCurrentUser, signOut, save, load} from './leanCloud'
+import 'jquery'
 
 class App extends Component {
     constructor(props) {
@@ -13,12 +14,11 @@ class App extends Component {
         this.state = {
             user: getCurrentUser() || {},
             newTodo: '',
-            todoList: []
+            todoList:  load() || []
         }
     }
 
     render() {
-
         let todos = this.state.todoList.filter((item) => !item.deleted).map((item, index) => {
             return ( // 为什么这里要加个括号？这是动手题3 🐸
                 <li key={index}>
@@ -65,7 +65,7 @@ class App extends Component {
     }
 
     componentDidUpdate() {
-
+        save('todoList', this.state.todoList)
     }
 
     toggle(e, todo) {
@@ -89,6 +89,7 @@ class App extends Component {
             status: null,
             deleted: false
         })
+        event.target.value = ''
         this.setState({
             newTodo: '',
             todoList: this.state.todoList
@@ -104,12 +105,10 @@ class App extends Component {
 }
 
 export default App;
-
 let
     id = 0
 
 function
-
 idMaker() {
     id += 1
     return id

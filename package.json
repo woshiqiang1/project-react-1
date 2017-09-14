@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://woshiqiang1.github.io/project-react-1/build/",
   "dependencies": {
+    "jquery": "^3.2.1",
     "leancloud-realtime": "^3.5.7",
     "leancloud-storage": "^3.2.0",
     "normalize.css": "^7.0.0",

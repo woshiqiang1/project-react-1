@@ -42,8 +42,8 @@
       <file leaf-file-name="UserDialog.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UserDialog.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="166" column="0" lean-forward="true" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
+            <state relative-caret-position="122">
+              <caret line="136" column="20" lean-forward="true" selection-start-line="136" selection-start-column="20" selection-end-line="136" selection-end-column="20" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -76,8 +76,8 @@
       <file leaf-file-name="leanCloud.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/leanCloud.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="58" column="25" lean-forward="true" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
+            <state relative-caret-position="244">
+              <caret line="61" column="1" lean-forward="true" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -134,7 +134,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="451" />
     <option name="y" value="63" />
     <option name="width" value="874" />
@@ -193,15 +193,15 @@
       <workItem from="1505201304578" duration="12923000" />
       <workItem from="1505268357626" duration="18244000" />
       <workItem from="1505349685561" duration="96000" />
-      <workItem from="1505353686922" duration="14505000" />
+      <workItem from="1505353686922" duration="14805000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58436000" />
+    <option name="totallyTimeSpent" value="58736000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="451" y="63" width="874" height="779" extended-state="1" />
+    <frame x="54" y="-8" width="1320" height="784" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34239677" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -555,8 +555,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UserDialog.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="166" column="0" lean-forward="true" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
+        <state relative-caret-position="122">
+          <caret line="136" column="20" lean-forward="true" selection-start-line="136" selection-start-column="20" selection-end-line="136" selection-end-column="20" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -565,8 +565,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/leanCloud.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="58" column="25" lean-forward="true" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
+        <state relative-caret-position="244">
+          <caret line="61" column="1" lean-forward="true" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
           <folding />
         </state>
       </provider>

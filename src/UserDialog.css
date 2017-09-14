@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  background: hsla(0, 0%, 0%, 0.40);
+    background: hsla(0, 0%, 0%, 0.40);
 }
 
 .UserDialog {
@@ -46,4 +46,15 @@
 
 .UserDialog form > .row.actions {
     padding-left: 4em;
+    display: flex;
+    align-items: center;
+}
+
+.UserDialog form > .row.actions button {
+    margin-right: .5em;
+}
+
+.UserDialog button {
+    font: inherit;
+    padding: .2em;
 }

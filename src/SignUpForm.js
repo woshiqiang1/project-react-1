@@ -1,3 +1,5 @@
+//函数式定义组件，不可以使用state
+import React from 'react';
 export default function (props) {
     return (
         <form className="signUp" onSubmit={props.onSubmit.bind(this)}> {/* 注册*/}

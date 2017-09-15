@@ -6,7 +6,22 @@ import 'normalize.css'
 import './reset.css'
 import UserDialog from './UserDialog'
 import {getCurrentUser, signOut, save, load} from './leanCloud'
-import 'jquery'
+//import 'jquery'
+
+import AV from './leanCloud'
+//声明类型
+var TodoFolder = AV.Object.extend('TodoFolder')
+//新建对象
+var toodFolder = new TodoFolder();
+//设置名称
+todoFolder.set('name','工作');
+//设置优先级
+todoFolder.set('priority',1)
+todoFolder.save().then(function (todo) {
+    console.log('objctID is' + 'todo.id')
+},function(error){
+    console.log(error);
+})
 
 class App extends Component {
     constructor(props) {

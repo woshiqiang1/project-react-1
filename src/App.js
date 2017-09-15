@@ -5,10 +5,9 @@ import TodoItem from './TodoItem'
 import 'normalize.css'
 import './reset.css'
 import UserDialog from './UserDialog'
-import {getCurrentUser, signOut, TodoModel, load} from './leanCloud'
+import {getCurrentUser, signOut, TodoModel} from './leanCloud'
 
 //import 'jquery'
-
 
 class App extends Component {
     constructor(props) {
@@ -76,7 +75,6 @@ class App extends Component {
     }
 
     componentDidUpdate() {
-        save('todoList', this.state.todoList)
     }
 
     toggle(e, todo) {
@@ -101,7 +99,7 @@ class App extends Component {
     addTodo(event) {
         let newTodo = {
             title: event.target.value,
-            status: null,
+            status: '',
             deleted: false
         }
         TodoModel.create(newTodo, (id) => {

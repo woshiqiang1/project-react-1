@@ -36,6 +36,7 @@ export const TodoModel = {
         let acl = new AV.ACL()
         acl.setPublicReadAccess(false) // 注意这里是 false，表示不可公开读取
         acl.setWriteAccess(AV.User.current(), true)
+        acl.setReadAccess(AV.User.current(), true)
         todo.setACL(acl);
         todo.save().then(function (response) {
             successFn.call(null, response.id)
@@ -64,13 +65,8 @@ export const TodoModel = {
         }, (error) => errorFn && errorFn.call(null, error))
     },
     destroy(todoId, successFn, errorFn) {
-        // 文档 https://leancloud.cn/docs/leanstorage_guide-js.html#删除对象
-        let todo = AV.Object.createWithoutData('Todo', todoId)
-        todo.destroy().then(function (response) {
-            successFn && successFn.call(null)
-        }, function (error) {
-            errorFn && errorFn.call(null, error)
-        });
+        // 我们不应该删除数据，而是将数据标记为 deleted
+        TodoModel.update({id: todoId, deleted: true}, successFn, errorFn)
     }
 }
 

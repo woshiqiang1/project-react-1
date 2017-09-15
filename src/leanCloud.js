@@ -11,13 +11,26 @@ export default AV
 
 //所有跟Todo相关的LeanCloud操作都放到这里
 export const TodoModel = {
+    getByUser(user, successFn, errorFn) {
+        // 文档见 https://leancloud.cn/docs/leanstorage_guide-js.html#批量操作
+        let query = new AV.Query('Todo')
+        query.find().then((response) => {
+            let array = response.map((t) => {
+                return {id: t.id, ...t.attributes}
+            })
+            successFn.call(null, array)
+        }, (error) => {
+            errorFn && errorFn.call(null, error)
+        })
+    },
+
     create({status, title, deleted}, successFn, errorFn) {
         let Todo = AV.Object.extend('Todo') // 记得把多余的分号删掉，我讨厌分号
         let todo = new Todo()
         todo.set('title', title)
         todo.set('status', status)
         todo.set('deleted', deleted)
-        todo.save().then(function(response){
+        todo.save().then(function (response) {
             successFn.call(null, response.id)
         }, function (error) {
             errorFn && errorFn.call(null, error)

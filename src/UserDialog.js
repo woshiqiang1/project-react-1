@@ -72,14 +72,14 @@ export default class UserDialog extends Component {
             <div className="UserDialog-Wrapper">
                 <div className="UserDialog">
                     {
-                        this.state.selectedTab === 'signInOrSignUp' ?
+                        this.state.selectedTab === 'signInOrSignUp' ?//注意有三元运算符
                             <SignInOrSignUp
                                 formData={this.state.formData}
                                 onSignIn={this.signIn.bind(this)}
                                 onSignUp={this.signUp.bind(this)}
                                 onChange={this.changeFormData.bind(this)}
                                 onForgotPassword={this.showForgotPassword.bind(this)}
-                            /> :
+                            /> ://注意有三元运算符
                             <ForgotPasswordForm
                                 formData={this.state.formData}
                                 onSubmit={this.resetPassword.bind(this)}

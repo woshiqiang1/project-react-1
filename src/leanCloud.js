@@ -2,7 +2,6 @@ import AV from 'leancloud-storage'
 
 var APP_ID = 'KHDrL9QXe3FpByNyIfX7iQM5-gzGzoHsz';
 var APP_KEY = '9cvT6ffhiDsKj9OO9DxzHUKY';
-var objectID = '';
 
 AV.init({
     appId: APP_ID,
@@ -10,14 +9,34 @@ AV.init({
 });
 export default AV
 
+//所有跟Todo相关的LeanCloud操作都放到这里
+export const TodoModel = {
+    create({status, title, deleted}, successFn, errorFn) {
+        let Todo = AV.Object.extend('Todo') // 记得把多余的分号删掉，我讨厌分号
+        let todo = new Todo()
+        todo.set('title', title)
+        todo.set('status', status)
+        todo.set('deleted', deleted)
+        todo.save().then(function(response){
+            successFn.call(null, response.id)
+        }, function (error) {
+            errorFn && errorFn.call(null, error)
+        });
+    },
+    update() {
+    },
+    destroy() {
+    }
+}
+
 export function signUp(email, username, password, successFn, errorFn) {
     // 新建 AVUser 对象实例
     var user = new AV.User()
-    // 设置用户名
+// 设置用户名
     user.setUsername(username)
-    // 设置密码
+// 设置密码
     user.setPassword(password)
-    // 设置邮箱
+// 设置邮箱
     user.setEmail(email)
 
     user.signUp().then(function (loginedUser) {
@@ -27,7 +46,6 @@ export function signUp(email, username, password, successFn, errorFn) {
         errorFn.call(null, error)
     })
     return undefined
-
 }
 
 export function signIn(username, password, successFn, errorFn) {
@@ -61,32 +79,6 @@ export function sendPasswordResetEmail(email, successFn, errorFn) {
     })
 }
 
-
-export function save(key, value) {
-    var SaveData = AV.Object.extend('SaveData')
-    var data = new SaveData();
-    data.set(key, value)
-    data.save().then(function (todo) {
-        // 成功保存之后，执行其他逻辑
-        // 获取 objectId
-        console.log(todo.id)
-        objectID = todo.id
-    }, function (error) {
-        alert('保存当前数据失败')
-    });
-
-}
-
-export function load() {
-    var todo = AV.Object.createWithoutData('SaveData', objectID);
-    todo.fetch().then(function () {
-        var todoList = todo.get('todoList');// 读取 todoList
-        console.log(todoList)
-        return todoList
-    }, function (error) {
-        alert('error')
-    });
-}
 
 function getUserFromAVUser(AVUser) {
     return {

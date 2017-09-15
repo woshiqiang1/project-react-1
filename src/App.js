@@ -5,23 +5,10 @@ import TodoItem from './TodoItem'
 import 'normalize.css'
 import './reset.css'
 import UserDialog from './UserDialog'
-import {getCurrentUser, signOut, save, load} from './leanCloud'
+import {getCurrentUser, signOut, TodoModel, load} from './leanCloud'
+
 //import 'jquery'
 
-import AV from './leanCloud'
-//声明类型
-var TodoFolder = AV.Object.extend('TodoFolder')
-//新建对象
-var toodFolder = new TodoFolder();
-//设置名称
-todoFolder.set('name','工作');
-//设置优先级
-todoFolder.set('priority',1)
-todoFolder.save().then(function (todo) {
-    console.log('objctID is' + 'todo.id')
-},function(error){
-    console.log(error);
-})
 
 class App extends Component {
     constructor(props) {
@@ -29,7 +16,7 @@ class App extends Component {
         this.state = {
             user: getCurrentUser() || {},
             newTodo: '',
-            todoList:  load() || []
+            todoList: load() || []
         }
     }
 
@@ -97,33 +84,30 @@ class App extends Component {
     }
 
     addTodo(event) {
-        this.state.todoList.push({
-            id: idMaker(),
+        let newTodo = {
             title: event.target.value,
             status: null,
             deleted: false
+        }
+        TodoModel.create(newTodo, (id) => {
+            newTodo.id = id
+            this.state.todoList.push(newTodo)
+            this.setState({
+                newTodo: '',
+                todoList: this.state.todoList
+            })
+        }, (error) => {
+            console.log(error)
         })
-        event.target.value = ''
-        this.setState({
-            newTodo: '',
-            todoList: this.state.todoList
-        })
+            event.target.value = ''
+        }
 
+        delete(event, todo)
+        {
+            todo.deleted = true
+            this.setState(this.state)
+
+        }
     }
 
-    delete(event, todo) {
-        todo.deleted = true
-        this.setState(this.state)
-
-    }
-}
-
-export default App;
-let
-    id = 0
-
-function
-idMaker() {
-    id += 1
-    return id
-}
+    export default App;

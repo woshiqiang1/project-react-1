@@ -34,7 +34,7 @@ export default class UserDialog extends Component {
                     break
             }
         }
-        signUp(email, password, success, error)
+        signUp(email, username,password, success, error)
     }
 
     signIn(e) {
@@ -42,6 +42,7 @@ export default class UserDialog extends Component {
         let {username, password} = this.state.formData
         let success = (user) => {
             this.props.onSignIn.call(null, user)
+            window.location.reload()
         }
         let error = (error) => {
             console.log(error.code)

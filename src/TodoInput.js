@@ -6,7 +6,7 @@ function submit(props, e) {
         if(e.target.value.trim() !== ''){
             props.onSubmit(e)
         }else{
-            alert('请输入something todo 再保存哦！')
+            alert('输入内容为空，请输入内容后保存！')
         }
 
     }
@@ -24,5 +24,6 @@ export default function (props) {
     return <input type="text" value={props.content}
                   className="TodoInput"
                   onChange={changeTitle.bind(null, props)}
-                  onKeyPress={submit.bind(null, props)}/> //bind除了指定this还可以指定第一个参数
+                  onKeyPress={submit.bind(null, props)}
+    placeholder={props.placeholder}/> //bind除了指定this还可以指定第一个参数
 }

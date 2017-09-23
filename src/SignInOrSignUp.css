@@ -1,0 +1,53 @@
+.signInOrSignUp {
+    background: #f9f9f9;
+    background: linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#f9f9f9',GradientType=0 );
+    box-shadow: 0 1px 0 #fff inset;
+    border: 1px solid #c4c6ca;
+    margin: 0 auto;
+    padding: 25px 0 0;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 1px 0 #fff;
+    width: 400px;
+}
+.signInOrSignUp:before,
+.signInOrSignUp:after{
+    background: #f9f9f9;
+    background: linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#f9f9f9',GradientType=0 );
+    border: 1px solid #c4c6ca;
+    content: "";
+    display: block;
+    height: 100%;
+    left: -1px;
+    position: absolute;
+    width: 100%;
+}
+.signInOrSignUp:before{
+    transform: rotate(-3deg);
+    top: 0;
+    z-index: -2;
+}
+.signInOrSignUp:after{
+    transform: rotate(2deg);
+    top: 0;
+    z-index: -1;
+}
+.signInOrSignUp nav label{
+    padding: 10px 30px;
+    border: 1px solid #ccc;
+    width: 40%;
+}
+.signInOrSignUp nav label:hover{
+    border: 1px solid purple ;
+}
+.signInOrSignUp nav input:checked+label{
+    background-color: lightpink;
+}
+.signInOrSignUp nav input{
+    display: none;
+}
+.signInOrSignUp .panes{
+    margin-top: 20px;
+}

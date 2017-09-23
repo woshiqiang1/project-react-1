@@ -8,53 +8,28 @@
 
 .iconfont {
     font-family:"iconfont" !important;
+    font-size:16px;
     font-style:normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-.TodoItem {
-    background-color: #2affb3;
-    margin-top: 10px;
-    position:relative;
-    border-radius:5px;
-    border:solid 1px #2affb3;
-    padding:10px 30px;
-    transition: all 0.1s;
-    box-shadow: 0px 9px 0px #319f98;
-    display: flex;
-    align-items: center;
-    opacity: 0.8;
-}
-
-.TodoItem > .title {
-    font-size: 2rem;
-    flex-grow: 1;
-    color: #000;
-    padding: 0 .5em;
-}
-
-.TodoItem .check {
-    width: 28px;
-    height: 28px;
+.GroupItem{
     position: relative;
-    margin: 20px auto;
-    background: #f8ff34;
-    background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-    box-shadow: inset 0px 1px 1px white;
 }
-.TodoItem .check:checked + .title{
-    text-decoration:line-through;
-    color: #ccc;
+.GroupItem span {
+    display: inline-block;
+    min-width: 100%;
+    /*background-color: red;*/
+    font-size: 20px;
+    padding: 10px;
 }
-.TodoItem .button {
-   font-size: 2rem;
+.GroupItem .delete-icon{
+    position: absolute;
+    top: 11px;
+    right: 0;
+    color: #5358f9;
     cursor: pointer;
-    color: #fff;
 }
-.TodoItem .button:hover{
+.GroupItem .delete-icon:hover{
     color: red;
 }
-
-
-
-

@@ -9,7 +9,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: hsla(0, 0%, 0%, 0.40);
+    background: #eae7e7 url(https://cssdeck.com/uploads/media/items/8/8bcLQqF.png) no-repeat;
+    border: 1px solid #c8c8c8;
 }
 
 .UserDialog {

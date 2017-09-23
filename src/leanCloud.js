@@ -24,12 +24,13 @@ export const TodoModel = {
         })
     },
 
-    create({status, title, deleted}, successFn, errorFn) {
+    create({status, title, deleted, group}, successFn, errorFn) {
         let Todo = AV.Object.extend('Todo') // 记得把多余的分号删掉，我讨厌分号
         let todo = new Todo()
         todo.set('title', title)
         todo.set('status', status)
         todo.set('deleted', deleted)
+        todo.set('group', group)
 
         // 根据文档 https://leancloud.cn/docs/acl-guide.html#单用户权限设置
         // 这样做就可以让这个 to do 只被当前用户看到
@@ -70,58 +71,59 @@ export const TodoModel = {
     }
 }
 
-export function signUp(email, username, password, successFn, errorFn) {
-    // 新建 AVUser 对象实例
-    var user = new AV.User()
+    export function signUp(email, username, password, successFn, errorFn) {
+        // 新建 AVUser 对象实例
+        var user = new AV.User()
 // 设置用户名
-    user.setUsername(username)
+        user.setUsername(username)
 // 设置密码
-    user.setPassword(password)
+        user.setPassword(password)
 // 设置邮箱
-    user.setEmail(email)
+        user.setEmail(email)
 
-    user.signUp().then(function (loginedUser) {
-        let user = getUserFromAVUser(loginedUser)
-        successFn.call(null, user)
-    }, function (error) {
-        errorFn.call(null, error)
-    })
-    return undefined
-}
-
-export function signIn(username, password, successFn, errorFn) {
-    AV.User.logIn(username, password).then(function (loginedUser) {
-        let user = getUserFromAVUser(loginedUser)
-        successFn.call(null, user)
-    }, function (error) {
-        errorFn.call(null, error)
-    })
-}
-
-export function getCurrentUser() {
-    let user = AV.User.current()
-    if (user) {
-        return getUserFromAVUser(user)
-    } else {
-        return null
+        user.signUp().then(function (loginedUser) {
+            let user = getUserFromAVUser(loginedUser)
+            successFn.call(null, user)
+        }, function (error) {
+            errorFn.call(null, error)
+        })
+        return undefined
     }
-}
 
-export function signOut() {
-    AV.User.logOut()
-    return undefined
-}
+    export function signIn(username, password, successFn, errorFn) {
+        AV.User.logIn(username, password).then(function (loginedUser) {
+            let user = getUserFromAVUser(loginedUser)
+            successFn.call(null, user)
+        }, function (error) {
+            errorFn.call(null, error)
+        })
+    }
 
-export function sendPasswordResetEmail(email, successFn, errorFn) {
-    AV.User.requestPasswordReset(email).then(function (success) {
-        successFn.call()
-    }, function (error) {
-        errorFn.call(null, error)
-    })
-}
+    export function getCurrentUser() {
+        let user = AV.User.current()
+        if (user) {
+            return getUserFromAVUser(user)
+        } else {
+            return null
+        }
+    }
+
+    export function signOut() {
+        AV.User.logOut()
+        return undefined
+    }
+
+    export function sendPasswordResetEmail(email, successFn, errorFn) {
+        AV.User.requestPasswordReset(email).then(function (success) {
+            successFn.call()
+        }, function (error) {
+            errorFn.call(null, error)
+        })
+    }
 
 
-function getUserFromAVUser(AVUser) {
+    function getUserFromAVUser(AVUser)
+{
     return {
         id: AVUser.id,
         ...AVUser.attributes
